@@ -94,3 +94,26 @@ addListener(eventName: 'screenOnOff', listener: OnOffListener) => any
 <code>(state: <a href="#screenonoffstate">ScreenOnOffState</a>): void</code>
 
 </docgen-api>
+
+
+
+#### USING IN AN IONIC APP ########
+
+package.json
+```json
+  "dependencies": {
+    "screen-on-off-detect": "link:/......./plugins/screen-on-off-detect",
+  }
+```
+
+home.component.ts  
+```ts
+import { ScreenOnOffDetect } from 'screen-on-off-detect';
+
+async ngOnInit() {
+    ScreenOnOffDetect.addListener('screenOnOff', ({value}) => {
+      console.log(`Screen is now ${value}`);
+    });
+}
+```
+
